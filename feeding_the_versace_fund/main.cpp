@@ -68,6 +68,7 @@ struct Inst {
   string macid;
   string hwid;
   string server_ip;
+  string beg_message;
   u16 server_port;
   unordered_set<string> players_seen;
 
@@ -318,7 +319,7 @@ int run_inst(int instid) {
 
           log("%s joined the trade.", trade->ign.c_str());
           Sleep(2000);
-          client->send_trade_message("hi sorry to be annoying but could i please have mesos for armor and pots?");
+          client->send_trade_message(inst->beg_message);
           trade->last_activity = current_time_in_ms();
           break;
         }
@@ -549,6 +550,9 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE, LPSTR, int) {
       auto path = string("profiles/") + find_data.cFileName;
       auto inst = world.instances + (world.n_instances++);
       read_config_into_inst(path, inst);
+
+      if (world.n_instances >= _countof(world.instances))
+        break;
     }
   } while (FindNextFileA(find, &find_data));
 

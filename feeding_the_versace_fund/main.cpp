@@ -313,6 +313,7 @@ int run_inst(int instid) {
           file << "hwid = " << inst->hwid << endl;
           file << "server_ip = " << inst->server_ip << endl;
           file << "server_port = " << inst->server_port << endl;
+          file << "beg_message = " << inst->beg_message << endl;
           file << endl;
           for (auto ign : inst->players_seen)
             file << ign << "\n";
@@ -510,6 +511,7 @@ bool read_config_into_inst(string path, Inst *inst) {
   inst->hwid =  config["hwid"];
   inst->server_ip = config["server_ip"];
   inst->server_port = stoi(config["server_port"]);
+  inst->beg_message = config["beg_message"];
 
   if (!file.eof()) {
     // skip over blank line

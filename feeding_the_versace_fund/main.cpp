@@ -491,8 +491,9 @@ bool read_config_into_inst(string path, Inst *inst) {
 
     // break out on empty line
     c = file.get();
-    bool done = (c == '\r' || c == '\n');
-    file.putback(c);
+    bool done = (c == '\r' || c == '\n' || c == -1);
+    if (c != -1)
+      file.putback(c);
     if (done)
       break;
   }
@@ -509,15 +510,18 @@ bool read_config_into_inst(string path, Inst *inst) {
   inst->server_ip = config["server_ip"];
   inst->server_port = stoi(config["server_port"]);
 
-  // skip over blank line
-  string line;
-  getline(file, line);
-
-  while (!file.eof()) {
+  if (!file.eof()) {
+    // skip over blank line
+    string line;
     getline(file, line);
-    inst->players_seen.insert(line);
+
+    while (!file.eof()) {
+      getline(file, line);
+      inst->players_seen.insert(line);
+    }
+    inst->players_seen.erase("");
   }
-  inst->players_seen.erase("");
+
   return true;
 }
 

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="client.hpp" />
+    <ClCompile Include="core.cpp" />
+    <ClCompile Include="crypto.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="aes\aes_modes.c">
+      <Filter>aes</Filter>
+    </ClCompile>
+    <ClCompile Include="aes\aes_ni.c">
+      <Filter>aes</Filter>
+    </ClCompile>
+    <ClCompile Include="aes\aescrypt.c">
+      <Filter>aes</Filter>
+    </ClCompile>
+    <ClCompile Include="aes\aeskey.c">
+      <Filter>aes</Filter>
+    </ClCompile>
+    <ClCompile Include="aes\aestab.c">
+      <Filter>aes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core.hpp" />
+    <ClInclude Include="crypto.hpp" />
+    <ClInclude Include="defer.hpp" />
+    <ClInclude Include="packet.hpp" />
+    <ClInclude Include="aes\aes.h">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="aes\aes_ni.h">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="aes\aesopt.h">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="aes\aestab.h">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="aes\brg_endian.h">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="aes\brg_types.h">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="aes">
+      <UniqueIdentifier>{6a3ff2d0-c19f-48a0-b14a-330bf7c9920d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{5a087a94-5310-49dc-b2c2-1377a151ba46}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
